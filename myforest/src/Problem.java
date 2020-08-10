@@ -20,4 +20,45 @@ public class Problem {
 				.format("Problem [id=%s, description=%s, area_id=%s, status_id=%s, tree=%s]",
 						id, description, area_id, status_id, tree);
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getArea_id() {
+		return area_id;
+	}
+
+	public void setArea_id(int area_id) {
+		this.area_id = area_id;
+	}
+
+	public int getStatus_id() {
+		return status_id;
+	}
+
+	public void setStatus_id(int status_id) {
+		this.status_id = status_id;
+	}
+
+	public String getTree() {
+		return tree;
+	}
+
+	public void setTree(String tree) {
+		this.tree = tree;
+	}
+
 }
