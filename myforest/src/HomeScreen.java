@@ -22,34 +22,26 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class HomeScreen extends JFrame {
-	Container c; 
+public class HomeScreen extends Container {
 	JButton start;
 	JLabel lab;
 	JPanel panel1, panel2;
+	JFrame parentFrame;
 	
-	public HomeScreen () {
-	c = getContentPane();
-	c.setLayout(new BorderLayout());
+	public HomeScreen (JFrame parentFrame) {
+	this.parentFrame = parentFrame;
+	setLayout(new BorderLayout());
 	panel1 = new JPanel();
 	panel2 = new JPanel();
 	URL url = HomeScreen.class.getResource("HomeImage.png");           
 	ImageIcon bild = new ImageIcon(url);
 	lab = new JLabel (bild);
 	start = new JButton("Start");
+	start.addActionListener(new navButtonListener(parentFrame, navButtonListener.MAIN_MENU ));
 	panel1.add(lab);
 	panel2.add(start);
-	c.add(panel1, BorderLayout.NORTH);
-	c.add(panel2, BorderLayout.SOUTH);
+	add(panel1, BorderLayout.NORTH);
+	add(panel2, BorderLayout.SOUTH);
 	
 	}
-
-	public static void main (String[] args) {
-	HomeScreen home = new HomeScreen ();
-	home.setTitle("My Forest");
-	home.setSize(1100, 800);
-	home.setVisible(true);
-	home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-
 }

@@ -14,6 +14,7 @@ public class DBConnection {
 
 	/**
 	 * Get a list of all entries in the problem table
+	 * 
 	 * @return ArrayList of Problem
 	 */
 	public List<Problem> getAllProblems() {
@@ -32,9 +33,11 @@ public class DBConnection {
 			return null;
 		}
 	}
-	
-	/**get the entry in the problem table with the given id
-	 * @param id 
+
+	/**
+	 * get the entry in the problem table with the given id
+	 * 
+	 * @param id
 	 * @return Problem
 	 */
 	public Problem getProblemByID(int id) {
@@ -50,12 +53,13 @@ public class DBConnection {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * get all entries in the area table
+	 * 
 	 * @return ArrayList of Areas
 	 */
-	public List<Area> getAllAreas(){
+	public List<Area> getAllAreas() {
 		List<Area> list = new ArrayList<Area>();
 
 		try (Statement stmt = conn.createStatement()) {
@@ -71,9 +75,10 @@ public class DBConnection {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * get the Area from the area table with the given id
+	 * 
 	 * @param id
 	 * @return Area
 	 */
@@ -90,9 +95,10 @@ public class DBConnection {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * get all entries in the status table
+	 * 
 	 * @return ArrayList of Status
 	 */
 	public List<Status> getAllStatuses() {
@@ -111,7 +117,7 @@ public class DBConnection {
 			return null;
 		}
 	}
-	
+
 	public Status getStatusById(int id) {
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM status WHERE id =" + id + "");
@@ -135,19 +141,39 @@ public class DBConnection {
 
 		return new Problem(id, description, area_id, status_id, tree);
 	}
-	
+
 	private Area convertAreaRow(ResultSet rs) throws SQLException {
-		
+
 		int id = rs.getInt("id");
 		String description = rs.getString("description");
-		
+
 		return new Area(id, description);
 	}
-	
+
 	private Status convertStatusRow(ResultSet rs) throws SQLException {
 		int id = rs.getInt("id");
 		String description = rs.getString("description");
 		return new Status(id, description);
+	}
+	
+	
+	/**
+	 * Inserts a new row into the Database Table Problem 
+	 * @param problem Object of type Problem that should be inserted into Database Table
+	 */
+	public void insertProblem(Problem problem) {
+		String stmt = "INSERT INTO problem(id, description,area_id, status_id, tree) VALUES(?,?,?,?,?)";
+
+		try (PreparedStatement pstmt = conn.prepareStatement(stmt)) {
+			pstmt.setInt(1, problem.getId());
+			pstmt.setString(2, problem.getDescription());
+			pstmt.setInt(3, problem.getArea_id());
+			pstmt.setInt(4, problem.getStatus_id());
+			pstmt.setString(5, problem.getTree());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public static void main(String[] args) {
@@ -161,11 +187,8 @@ public class DBConnection {
 			System.out.println(dbConnection.getAreaById(1));
 			System.out.println(dbConnection.getAllStatuses());
 			System.out.println(dbConnection.getStatusById(1));
-	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-
 	}
 }

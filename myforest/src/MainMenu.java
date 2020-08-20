@@ -1,21 +1,21 @@
 
-
 import java.awt.*;
 import java.net.URL;
 
 import javax.swing.*;
 
 
-public class MainMenu extends JFrame  {
+public class MainMenu extends Container  {
 
 	public JTextField eingabeDateiFeld, ausgabeDateiFeld;
 	JPanel panel1,panel2,panel3,panel4;
 	JLabel label1,label2,label3;
+	JFrame parentframe;
 
 
-	public MainMenu (){
-        Container c = getContentPane();
-        c.setLayout(new GridLayout(4, 1));
+	public MainMenu (JFrame parentframe){
+		this.parentframe = parentframe;
+        setLayout(new GridLayout(4, 1));
         panel1 = new JPanel();
         panel2 = new JPanel();
         panel3 = new JPanel();
@@ -42,20 +42,10 @@ public class MainMenu extends JFrame  {
         panel4.add(Menu2);
         panel4.add(Menu3);
         panel4.add(Menu4);
-        c.add(panel1);
-        c.add(panel2);
-        c.add(panel3);
-        c.add(panel4);
-    }
-    
-    public static void main(String[] args) {
-
-    	MainMenu fenster = new MainMenu();
-        fenster.setTitle("My Forest");
-        fenster.setSize(2000, 2000);
-        fenster.setVisible(true);
-        fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        add(panel1);
+        add(panel2);
+        add(panel3);
+        add(panel4);
     }
 }
 
