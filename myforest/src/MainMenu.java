@@ -1,6 +1,8 @@
 
 
 import java.awt.*;
+import java.net.URL;
+
 import javax.swing.*;
 
 
@@ -18,9 +20,12 @@ public class MainMenu extends JFrame  {
         panel2 = new JPanel();
         panel3 = new JPanel();
         panel4 = new JPanel();
-        Icon title = new ImageIcon("C:/Users/I518173/git/ATdIT1_Gruppe_1/myforest/src/MicrosoftTeams-image%20(2).png");
-        Icon weather = new ImageIcon("C:/Users/I518173/git/ATdIT1_Gruppe_1/myforest/src/MicrosoftTeams-image3.png");
-        Icon map = new ImageIcon("C:/Users/I518173/git/ATdIT1_Gruppe_1/myforest/src/MicrosoftTeams-image%20(1).png");
+        URL titleUrl = MainMenu.class.getResource("TitleImage.png");
+        URL weatherUrl = MainMenu.class.getResource("weatherImage.png");
+        URL mapUrl = MainMenu.class.getResource("mapImage.png");
+        Icon title = new ImageIcon(titleUrl);
+        Icon weather = new ImageIcon(weatherUrl);
+        Icon map = new ImageIcon(mapUrl);
         
         label1 = new JLabel(title);
         label2 = new JLabel(weather);

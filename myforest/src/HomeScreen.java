@@ -8,9 +8,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
-
-
- 
+import java.net.URL;
 
 import javax.swing.Icon;
 
@@ -35,7 +33,8 @@ public class HomeScreen extends JFrame {
 	c.setLayout(new BorderLayout());
 	panel1 = new JPanel();
 	panel2 = new JPanel();
-	Icon bild = new ImageIcon("C:/Users/I518173/git/ATdIT1_Gruppe_1/myforest/src/MicrosoftTeams-image.png");
+	URL url = HomeScreen.class.getResource("HomeImage.png");           
+	ImageIcon bild = new ImageIcon(url);
 	lab = new JLabel (bild);
 	start = new JButton("Start");
 	panel1.add(lab);
@@ -52,33 +51,5 @@ public class HomeScreen extends JFrame {
 	home.setVisible(true);
 	home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
-}
-
-
-
-
-
-
- 
-
-
- 
-
-
- 
-
-public class ATdIT2020 extends JFrame {
-
-
- 
-
-
- 
-
-
- 
-
- 
 
 }
