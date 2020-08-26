@@ -12,6 +12,8 @@ public class navButtonListener implements ActionListener {
 	JFrame frame;
 	public static final String MAIN_MENU = "main";
 	public static final String HOME_PAGE = "home";
+	public static final String CHAT_PAGE = "chat";
+	public static final String SHOP_PAGE = "shop";
 	
 	
 	 public navButtonListener(JFrame frame, String destinationPage) {
@@ -28,6 +30,12 @@ public class navButtonListener implements ActionListener {
 			break;
 		case(HOME_PAGE):
 			frame.setContentPane(new HomeScreen(frame));
+			break;
+		case(CHAT_PAGE):
+			frame.setContentPane(new Chat(frame));
+			break;
+		case(SHOP_PAGE):
+			frame.setContentPane(new Shop(frame));
 			break;
 		}
 		frame.setVisible(true);

@@ -1,9 +1,7 @@
 
 import java.awt.*;
 import java.net.URL;
-
 import javax.swing.*;
-
 
 public class MainMenu extends Container  {
 
@@ -31,9 +29,13 @@ public class MainMenu extends Container  {
         label2 = new JLabel(weather);
         label3 = new JLabel(map);
         JButton Menu1 = new JButton("Probleme");
+        //Menu1.addActionListener(new navButtonListener(this, navButtonListener.));
         JButton Menu2 = new JButton("Chat");
+        Menu2.addActionListener(new navButtonListener(this.parentframe, navButtonListener.CHAT_PAGE));
         JButton Menu3 = new JButton("Shop");
+        Menu3.addActionListener(new navButtonListener(this.parentframe, navButtonListener.SHOP_PAGE));
         JButton Menu4 = new JButton("Aufgaben");
+        //Menu1.addActionListener(new navButtonListener(this, navButtonListener.));
         panel1.add(label1);
         panel2.add(label2);
         panel3.add(label3);

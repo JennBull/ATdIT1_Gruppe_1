@@ -175,18 +175,37 @@ public class DBConnection {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void insertArea(Area area){
+		String stmt = "INSERT INTO area(id, description) VALUES(?,?)";
+		try (PreparedStatement pstmt = conn.prepareStatement(stmt)) {
+			pstmt.setInt(1, area.getId());
+			pstmt.setString(2, area.getDescription());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void insertStatus(Status status){
+		String stmt = "INSERT INTO status(id, description) VALUES(?,?)";
+		try (PreparedStatement pstmt = conn.prepareStatement(stmt)) {
+			pstmt.setInt(1, status.getId());
+			pstmt.setString(2, status.getDescription());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 
 	public static void main(String[] args) {
 
 		DBConnection dbConnection;
 		try {
 			dbConnection = new DBConnection();
-			System.out.println(dbConnection.getAllProblems());
-			System.out.println(dbConnection.getProblemByID(1));
-			System.out.println(dbConnection.getAllAreas());
-			System.out.println(dbConnection.getAreaById(1));
-			System.out.println(dbConnection.getAllStatuses());
-			System.out.println(dbConnection.getStatusById(1));
+			
+			dbConnection.insertArea(new Area(2, ""));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
