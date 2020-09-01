@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 
 import java.awt.FlowLayout;
@@ -40,6 +41,7 @@ public class HomeScreen extends Container {
 	start.addActionListener(new navButtonListener(parentFrame, navButtonListener.MAIN_MENU ));
 	panel1.add(lab);
 	panel2.add(start);
+	setBackground(Color.white);
 	add(panel1, BorderLayout.NORTH);
 	add(panel2, BorderLayout.SOUTH);
 	

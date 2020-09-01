@@ -19,5 +19,6 @@ public class Shop extends Container{
     //lab = new JLabel (bild);
     //panel1.add(lab);
     add(panelNavigation);
+    setBackground(Color.white);
     }
 }

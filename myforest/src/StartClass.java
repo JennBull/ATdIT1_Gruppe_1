@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Container;
 import javax.swing.JFrame;
 
@@ -7,15 +8,14 @@ import javax.swing.JFrame;
  *
  */
 public class StartClass extends JFrame {
-	
 	Container c;
-	
 	public static void main(String[] args) {
 		JFrame start = new StartClass();
 		start.setContentPane(new HomeScreen(start));
 		start.setTitle("My Forest");
 		start.setSize(1100, 800);
 		start.setVisible(true);
+		start.setBackground(Color.white);
 		start.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
