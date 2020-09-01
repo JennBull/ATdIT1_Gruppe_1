@@ -3,18 +3,39 @@ import java.awt.*;
 import java.net.URL;
 
 public class MenuBar extends JPanel {
-	JButton back;
+	JButton main, shop, chat, problems, tasks ;
 	
-	public MenuBar(JFrame parentFrame, String destination ) {
-		setLayout(new FlowLayout(FlowLayout.LEFT));
+	public MenuBar(JFrame parentFrame ) {
+		setLayout(new GridLayout(1,5));
 		URL url = MenuBar.class.getResource("Icon.png");
 	    Icon icon = new ImageIcon(url);
-	    //JLabel label = new JLabel(icon);
-		back = new JButton(icon);
-		back.setSize(60, 60);
-	    back.addActionListener(new navButtonListener( parentFrame, navButtonListener.MAIN_MENU));
+	    
+	    
+		main 		= new JButton(icon);
+		shop 		= new JButton("Shop");
+		chat 		= new JButton("Chat");
+		problems 	= new JButton("Probleme");
+		tasks	 	= new JButton("Aufgaben");
+		
+		
+	    main.addActionListener(new navButtonListener( parentFrame, navButtonListener.MAIN_MENU));
+	    shop.addActionListener(new navButtonListener( parentFrame, navButtonListener.SHOP_PAGE));
+	    chat.addActionListener(new navButtonListener( parentFrame, navButtonListener.CHAT_PAGE));
+	    problems.addActionListener(new navButtonListener( parentFrame, navButtonListener.MAIN_MENU));
+	    tasks.addActionListener(new navButtonListener( parentFrame, navButtonListener.MAIN_MENU));
+	    
+	    tasks.setBackground(Color.WHITE);
+	    main.setBackground(Color.WHITE);
+	    problems.setBackground(Color.WHITE);
+	    shop.setBackground(Color.WHITE);
+	    chat.setBackground(Color.WHITE);
+	    
 	    setBackground(Color.white);
-	    add(back);
-	    //add(label);
+	    
+	    add(problems);
+	    add(tasks);
+	    add(main);
+	    add(shop);
+	    add(chat);
 	}
 }

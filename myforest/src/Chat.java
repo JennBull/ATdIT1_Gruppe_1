@@ -14,7 +14,7 @@ public class Chat extends Container{
     this.parentFrame = parentFrame;
     setLayout(new BorderLayout());
     panel1 = new JPanel();
-    panelNavigation = new MenuBar(parentFrame, navButtonListener.MAIN_MENU);
+    panelNavigation = new MenuBar(parentFrame);
     URL url = Chat.class.getResource("Chat.png");           
     ImageIcon bild = new ImageIcon(url);
     lab = new JLabel (bild);

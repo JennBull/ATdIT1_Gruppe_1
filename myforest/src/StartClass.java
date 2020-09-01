@@ -13,7 +13,7 @@ public class StartClass extends JFrame {
 		JFrame start = new StartClass();
 		start.setContentPane(new HomeScreen(start));
 		start.setTitle("My Forest");
-		start.setSize(1100, 800);
+		start.setSize(1500, 1000);
 		start.setVisible(true);
 		start.setBackground(Color.white);
 		start.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
